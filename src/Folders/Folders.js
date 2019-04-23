@@ -4,18 +4,19 @@ import { NavLink } from 'react-router-dom';
 
 export default class Folders extends Component {
   render() {
-    console.log(this.props);
     const folders = this.props.folders.map(folder => {
       return (
-        <li key={folder.id}>
-          < NavLink to={`/folders/${folder.id}`}>{folder.name}</NavLink>
-        </li>
+        < NavLink to={`/folders/${folder.id}`} key={folder.id}>
+          <li>{folder.name}</li>
+        </NavLink>
       )
     })
     return (
-      <ul>
-        {folders}
-      </ul>
+      <div className='folders-wrapper'>
+        <ul className='folders'>
+          {folders}
+        </ul>
+      </div>
     )
   }
 }

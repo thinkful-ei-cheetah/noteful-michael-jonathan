@@ -4,7 +4,7 @@ import './SingleFolder.css';
 export default class SingleFolder extends Component {
   render() {
     return (
-      <div>
+      <div className='folder-wrapper'>
         <div className='folder'>
           {this.props.folder.name}
         </div>

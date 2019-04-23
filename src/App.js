@@ -28,26 +28,29 @@ export default class App extends Component {
         <header className="App-header">
           <h1>Noteful</h1>
         </header>
-        <div className='main-content main'>
+        <div className='main-content'>
+          <nav>
             <Route path='/' exact render={(routerProps) =>
               <Folders {...routerProps} folders={this.state.store.folders}/>
               }
             />
+
             <Route path='/notes/:id' render={(routerProps) =>
-                  <SingleFolder routerProps={routerProps}
-                    folder={ this.grabFolderFromNoteId(routerProps.match.params.id)}
-                  />
-                } 
+              <SingleFolder routerProps={routerProps}
+                folder={ this.grabFolderFromNoteId(routerProps.match.params.id)}
+              />} 
             />
+
             <Route path='/folders/:id' exact render={(routerProps) =>
               <Folders {...routerProps} folders={this.state.store.folders}/>
               }
             />
+          </nav>
+          <main>
             <Route path='/folders/:id' render={(routerProps) =>
-                  <Notes routerProps={routerProps}
-                    notes={ this.state.store.notes.filter((note)=>note.folderId === routerProps.match.params.id)}
-                  />
-                } 
+              <Notes routerProps={routerProps}
+                notes={ this.state.store.notes.filter((note)=>note.folderId === routerProps.match.params.id)}
+              />} 
             />
       
             <Route exact
@@ -62,9 +65,9 @@ export default class App extends Component {
             <Route
               path='/notes/:id'
               render={(routerProps) =>
-                < Note {...this.state.store.notes.find(note => note.id === routerProps.match.params.id)} />
-              }
+                < Note {...this.state.store.notes.find(note => note.id === routerProps.match.params.id)} />}
             />
+          </main>
         </div>
       </div>
     );

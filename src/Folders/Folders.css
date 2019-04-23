@@ -1,6 +1,25 @@
 /* styling for Folders Component */
 
 .active {
-color: red;
+  color: red !important;
+}
 
+.folders-wrapper {
+  width: 100%;
+}
+
+.folders {
+  list-style-type: none;
+  text-align: center;
+}
+
+.folders li {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.folders a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
