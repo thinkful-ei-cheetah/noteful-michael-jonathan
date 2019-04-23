@@ -11,9 +11,10 @@ export default class Note extends Component {
       <div className='note'>
         < Link to={`/notes/${this.props.id}`} >
           <h2>{this.props.name}</h2>
+          </Link>
           <p>Last edited: {this.props.modified}</p>
           <p className='content'>{this.props.content}</p>
-        </Link>
+       
       </div>
     )
   }

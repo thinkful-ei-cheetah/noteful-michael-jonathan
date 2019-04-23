@@ -28,18 +28,28 @@ export default class App extends Component {
         <header className="App-header">
           <h1>Noteful</h1>
         </header>
-        <div className='main-content'>
+        <div className='main-content main'>
             <Route path='/' exact render={(routerProps) =>
               <Folders {...routerProps} folders={this.state.store.folders}/>
               }
             />
             <Route path='/notes/:id' render={(routerProps) =>
                   <SingleFolder routerProps={routerProps}
-                  folder={ this.grabFolderFromNoteId(routerProps.match.params.id)}
+                    folder={ this.grabFolderFromNoteId(routerProps.match.params.id)}
                   />
                 } 
             />
-
+            <Route path='/folders/:id' exact render={(routerProps) =>
+              <Folders {...routerProps} folders={this.state.store.folders}/>
+              }
+            />
+            <Route path='/folders/:id' render={(routerProps) =>
+                  <Notes routerProps={routerProps}
+                    notes={ this.state.store.notes.filter((note)=>note.folderId === routerProps.match.params.id)}
+                  />
+                } 
+            />
+      
             <Route exact
               path='/'
               render={(routerProps) =>
