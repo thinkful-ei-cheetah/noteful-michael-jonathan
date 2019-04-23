@@ -3,6 +3,8 @@ import './App.css';
 import Sidebar from './Sidebar/Sidebar';
 import Notes from './Notes/Notes';
 import Store from './store';
+import { Route, Link } from 'react-router-dom'
+
 
 export default class App extends Component {
   state = {
@@ -16,8 +18,20 @@ export default class App extends Component {
           <h1>Noteful</h1>
         </header>
         <div className='main-content'>
-          <Sidebar />
-          < Notes notes={this.state.store.notes}/>
+
+
+
+            <Route path='/' component={Sidebar} />
+
+
+            <Route
+                path='/'
+                render={(routerProps) =>
+                  <Notes
+                  notes={this.state.store.notes}
+                  />
+                }
+              />
         </div>
       </div>
     );
