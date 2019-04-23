@@ -19,15 +19,11 @@ export default class App extends Component {
         </header>
         <div className='main-content'>
 
-
-
             <Route path='/' component={Sidebar} />
-
-
             <Route
                 path='/'
                 render={(routerProps) =>
-                  <Notes
+                  <Notes routerProps={routerProps}
                   notes={this.state.store.notes}
                   />
                 }
